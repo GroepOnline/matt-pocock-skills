@@ -1,8 +1,26 @@
 ---
 name: tdd
-description: Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.
+description: >-
+  Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions
+  "red-green-refactor", or wants integration tests.
+disable-model-invocation: true
+invocable-by:
+- user
+- agent
+- subagent
+domain: dev-tooling
+triggers:
+- tdd
+- red-green-refactor
+- the user wants to build features
+- fix bugs test-first
+- mentions "red-green-refactor"
+- wants integration tests
+avoid_when:
+- never against internals
+risk: mutating
+last_reviewed: 2026-07-28
 ---
-
 # Test-Driven Development
 
 TDD is the red → green loop. This skill is the reference that makes that loop produce tests worth keeping: what a good test is, where tests go, the anti-patterns, and the rules of the loop. Every section applies on every cycle — consult them before and during the loop, not after.

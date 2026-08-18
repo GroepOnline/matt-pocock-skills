@@ -1,7 +1,19 @@
 ---
 name: to-spec
-description: Turn the current conversation into a spec and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.
+description: Turn the current conversation into a spec and publish it to the project issue tracker. Use when the user wants synthesis into a spec without another interview.
+invocable-by:
+- user
+- agent
+- subagent
 disable-model-invocation: true
+domain: dev-tooling
+triggers:
+- to-spec
+risk: mutating
+last_reviewed: 2026-07-28
+ambient: false
+owner: chefgroep
+
 ---
 
 This skill takes the current conversation context and codebase understanding and produces a spec (you may know this document as a PRD). Do NOT interview the user — just synthesize what you already know.

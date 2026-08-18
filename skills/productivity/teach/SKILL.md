@@ -1,10 +1,25 @@
 ---
 name: teach
-description: Teach the user a new skill or concept, within this workspace.
+description: Teach the user a new skill or concept within this workspace. Use
+  when the user asks to learn, explain, or walk through a skill with exercises.
 disable-model-invocation: true
-argument-hint: "What would you like to learn about?"
----
+invocable-by:
+  - user
+  - agent
+domain: frontend-ui
+triggers:
+  - teach
+  - the user asks to learn
+  - explain
+  - walk through a skill with exercises
+risk: read-only
+last_reviewed: 2026-07-28
+argument-hint: What would you like to learn about?
+disabled: true
+ambient: false
+owner: vendor
 
+---
 The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.
 
 ## Teaching Workspace

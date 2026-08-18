@@ -1,9 +1,21 @@
 ---
 name: setup-matt-pocock-skills
-description: Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.
+description: >-
+  Configure this repo for engineering skills: issue tracker, triage labels, and domain doc layout. Use
+  when bootstrapping Matt Pocock-style skill workflows in a repo.
 disable-model-invocation: true
+invocable-by:
+- user
+- agent
+domain: frontend-ui
+surfaces:
+- Linear
+- GitHub
+triggers:
+- setup-matt-pocock-skills
+risk: mutating
+last_reviewed: 2026-07-28
 ---
-
 # Setup Matt Pocock's Skills
 
 Scaffold the per-repo configuration that the engineering skills assume:

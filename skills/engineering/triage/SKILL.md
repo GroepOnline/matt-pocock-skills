@@ -1,7 +1,23 @@
 ---
 name: triage
-description: Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if needed, and write agent-ready briefs.
+description: "Move issues and external PRs through a triage state machine: categorise, verify, grill if needed, write agent-ready briefs. Use for inbox/issue triage sweeps."
+invocable-by:
+- user
+- agent
+- subagent
 disable-model-invocation: true
+domain: dev-tooling
+triggers:
+- triage
+- inbox/issue triage sweeps
+risk: mutating
+last_reviewed: 2026-07-28
+ambient: false
+owner: chefgroep
+chains:
+  skills:
+  - chef-review-fix-meta
+
 ---
 
 # Triage

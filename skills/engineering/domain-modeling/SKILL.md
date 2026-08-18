@@ -1,6 +1,22 @@
 ---
 name: domain-modeling
 description: Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.
+invocable-by:
+- user
+- agent
+- subagent
+disable-model-invocation: true
+domain: dev-tooling
+triggers:
+- domain-modeling
+- the user wants to pin down domain terminology
+- a ubiquitous language
+- record an architectural decision
+risk: mutating
+last_reviewed: 2026-07-28
+ambient: false
+owner: chefgroep
+
 ---
 
 # Domain Modeling

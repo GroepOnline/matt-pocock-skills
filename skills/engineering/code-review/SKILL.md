@@ -1,6 +1,29 @@
 ---
 name: code-review
-description: Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/PRD asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to "review since X".
+description: Two-axis Standards/Spec review of changes since a fixed point. Use only for an explicit standards/spec review, a two-axis review, or "review since X" — not bare "review", "PR review", or review-as-fix. Standards/Spec review since a fixed point only — defer generic PR review to review-means-fix.
+invocable-by:
+- user
+- agent
+- subagent
+disable-model-invocation: true
+domain: dev-tooling
+triggers:
+- code-review
+- review since X
+- standards/spec review
+- two-axis review
+avoid_when:
+- generic review/PR review fix loop (use review-means-fix)
+- Bugbot/Security Review (use review-bugbot / review-security)
+- report-only find-bugs pass
+risk: mutating
+last_reviewed: 2026-07-28
+ambient: false
+owner: vendor
+chains:
+  skills:
+  - chef-review-fix-meta
+
 ---
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:

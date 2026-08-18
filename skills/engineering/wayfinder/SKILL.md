@@ -1,9 +1,48 @@
 ---
 name: wayfinder
-description: Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.
+description: >-
+  Plan complexe, in mist gehulde inspanningen via een gedeelde "decision-ticket map" op de issue tracker.
+  Gebruik als een idee te groot is voor één sessie, de route naar het doel onduidelijk is, of beslissingen
+  gelockt moeten worden vóór het bouwen begint. Wayfinder is planning by default — produceert beslissingen,
+  geen deliverables; de drang om "gewoon te doen" is het signaal dat de kaart af is.
 disable-model-invocation: true
----
+invocable-by:
+- user
+- agent
+- subagent
+domain: frontend-ui
+triggers:
+- wayfinder
+- decision-ticket map
+- gewoon te doen
+avoid_when:
+- never by a bare id, number, or slug
+- never stand in for it
+- never restates it, only gist
+requires:
+- mcp:chefgroep-vault
+- cli:cg-share
+risk: read-only
+last_reviewed: 2026-07-28
+metadata:
+  source: https://www.skills.sh/mattpocock/skills/wayfinder
+  repo: https://github.com/mattpocock/skills
+  author: Matt Pocock
+  shape: planning / decision-mapping
+  related_skills:
+  - chefgroep-desktop
+  - pi-orchestra
+  - orchestrator-master
+  chaining: >
+    wayfinder = planning (beslissingen locken). chefgroep-desktop/pi-orchestra = uitvoering.
 
+    Gebruik wayfinder eerst als de route onduidelijk is; als de kaart af is, voer uit
+
+    met chefgroep-desktop (chefgroep-werk) of pi-orchestra (multi-agent).
+compatibility: >-
+  Issue tracker nodig (GitHub Issues / local-markdown default). Tracker-specifieke operaties via /setup-matt-pocock-skills
+  of het repo's tracker-doc.
+---
 A loose idea has arrived — too big for one agent session, and wrapped in fog: the way from here to the **destination** isn't visible yet. Wayfinding is about finding that way, not charging at the destination. This skill charts the way as a **shared map** on the repo's issue tracker, then works its **decision tickets** — questions whose resolution is a decision, not slices of a build to execute — one at a time until the route is clear.
 
 The destination varies per effort, and naming it is the first act of charting — it shapes every ticket. It might be a spec to hand off and iterate on, a decision to lock before planning starts, or a change made in place like a data-structure migration. The map is domain-agnostic — engineering work, course content, whatever fits the shape.
@@ -41,7 +80,7 @@ The whole map at low resolution, loaded once per session. Open tickets are **not
 
 <!-- the index — one line per closed ticket: enough to judge relevance, then zoom the link for the detail the ticket holds -->
 
-- [<closed ticket title>](link) — <one-line gist of the answer>
+- `<closed ticket title>` — <one-line gist of the answer> — <one-line gist of the answer>
 
 ## Not yet specified
 
@@ -126,3 +165,19 @@ User invokes with a map (URL or number). A ticket is **optional** — without on
 5. Add newly-surfaced tickets (create-then-wire); graduate any fog the answer has made specifiable, clearing each graduated patch from **Not yet specified** so it lives only as its new ticket. If the answer reveals a ticket — this one or another — sits beyond the destination, **rule it out of scope** rather than resolving it on the route. If the decision invalidates other parts of the map, update or delete those tickets.
 
 The user may run unblocked tickets in parallel, so expect other sessions to be editing the tracker concurrently.
+
+---
+
+## ChefGroep-chaining (lokale aanvulling)
+
+Voor chefgroep-werk: wayfinder levert de decision-map; **chefgroep-desktop**
+voert uit (cg-share, notificaties, design-taal, chefbar). Voor bredere fleet-
+of multi-repo-inspanningen: **pi-orchestra**/**orchestrator-master**.
+
+Typisch patroon:
+1. `wayfinder` → kaart + decision-tickets op de chefgroep-vault issue tracker
+2. kaart af → uitvoer-tickets met chefgroep-desktop (Signaal-taal, SSOT DESIGN.md)
+3. multi-agent → pi-orchestra orkestreert
+
+Volledige matt-pocock skill-set + `/setup-matt-pocock-skills` installatie:
+<https://github.com/mattpocock/skills>

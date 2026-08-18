@@ -1,7 +1,24 @@
 ---
 name: writing-great-skills
-description: Reference for writing and editing skills well — the vocabulary and principles that make a skill predictable.
+description: "Reference for writing and editing skills well: vocabulary and principles that make a skill predictable. Use when authoring or reviewing SKILL.md quality."
+invocable-by:
+- user
+- agent
+- subagent
 disable-model-invocation: true
+domain: dev-tooling
+triggers:
+- writing-great-skills
+- authoring
+- reviewing SKILL
+risk: read-only
+last_reviewed: 2026-07-28
+ambient: false
+owner: chefgroep
+chains:
+  skills:
+  - chef-skill-engineering-meta
+
 ---
 
 A skill exists to wrangle determinism out of a stochastic system. **Predictability** — the agent taking the same _process_ every run, not producing the same output — is the root virtue; every lever below serves it.

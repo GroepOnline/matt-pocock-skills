@@ -1,6 +1,23 @@
 ---
 name: research
 description: Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.
+invocable-by:
+- user
+- agent
+- subagent
+disable-model-invocation: true
+domain: dev-tooling
+triggers:
+- research
+- the user wants a topic researched
+- docs
+- API facts gathered
+- reading legwork delegated to a background agent
+risk: read-only
+last_reviewed: 2026-07-28
+ambient: false
+owner: chefgroep
+
 ---
 
 Spin up a **background agent** to do the research, so you keep working while it reads.

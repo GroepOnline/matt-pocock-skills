@@ -1,9 +1,23 @@
 ---
 name: ask-matt
-description: Ask which skill or flow fits your situation. A router over the skills in this repo.
+description: Ask which skill or flow fits your situation. A router over the
+  skills in this repo. Use when the task matches ask-matt.
 disable-model-invocation: true
----
+invocable-by:
+  - user
+  - agent
+  - subagent
+domain: governance-meta
+triggers:
+  - ask-matt
+  - the task matches ask-matt
+risk: mutating
+last_reviewed: 2026-07-28
+disabled: true
+ambient: false
+owner: vendor
 
+---
 # Ask Matt
 
 You don't remember every skill, so ask.
