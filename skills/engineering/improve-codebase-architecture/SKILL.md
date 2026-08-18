@@ -1,9 +1,21 @@
 ---
 name: improve-codebase-architecture
-description: Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
+description: >-
+  Scan a codebase for deepening opportunities, present an HTML report, then grill through chosen items.
+  Use for architecture improvement campaigns, not routine bugfixes.
 disable-model-invocation: true
+invocable-by:
+- user
+- agent
+- subagent
+domain: dev-tooling
+triggers:
+- improve-codebase-architecture
+- architecture improvement campaigns
+- not routine bugfixes
+risk: mutating
+last_reviewed: 2026-07-28
 ---
-
 # Improve Codebase Architecture
 
 Surface architectural friction and propose **deepening opportunities**: refactors that turn shallow modules into deep ones. The aim is testability and AI-navigability.

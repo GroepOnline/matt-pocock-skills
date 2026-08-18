@@ -1,6 +1,28 @@
 ---
 name: codebase-design
-description: Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.
+description: Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary. Module/architecture design vocabulary — not visual UI design.
+invocable-by:
+- user
+- agent
+- subagent
+disable-model-invocation: true
+domain: dev-tooling
+triggers:
+- codebase-design
+- improve a module's interface
+- find deepening opportunities
+- decide where a seam goes
+- make code more testable
+- AI-navigable
+- module interface design
+- deep modules
+avoid_when:
+- visual/UI design (use impeccable or chefgroep-signaal-ui)
+risk: mutating
+last_reviewed: 2026-07-28
+ambient: false
+owner: chefgroep
+
 ---
 
 # Codebase Design
